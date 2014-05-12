@@ -342,12 +342,15 @@ void OpenHantekMainWindow::connectSignals() {
 
 /// \brief Initialize the device with the current settings.
 void OpenHantekMainWindow::initializeDevice() {
+#if 0
+	qDebug("%s:%i\n", __func__, __LINE__);qDebug("%s:%i\n", __func__, __LINE__);
 	for(unsigned int channel = 0; channel < this->settings->scope.physicalChannels; ++channel) {
 		this->dsoControl->setCoupling(channel, (Dso::Coupling) this->settings->scope.voltage[channel].misc);
 		this->updateVoltageGain(channel);
 		this->updateOffset(channel);
 		this->dsoControl->setTriggerLevel(channel, this->settings->scope.voltage[channel].trigger);
 	}
+#endif
 	this->updateUsed(this->settings->scope.physicalChannels);
 	if(this->settings->scope.horizontal.samplerateSet)
 		this->samplerateSelected();

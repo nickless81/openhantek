@@ -49,6 +49,10 @@ namespace Hantek {
 		//CONTROLINDEX_BEGINCOMMAND,
 		CONTROLINDEX_SETOFFSET,
 		CONTROLINDEX_SETRELAYS,
+		CONTROLINDEX_SETVOLTDIV_CH1,
+		CONTROLINDEX_SETVOLTDIV_CH2,
+		CONTROLINDEX_SETTIMEDIV,
+		CONTROLINDEX_ACQUIIRE_HARD_DATA,
 		CONTROLINDEX_COUNT
 	};
 	
@@ -125,6 +129,7 @@ namespace Hantek {
 		QList<unsigned short int> voltageLimit[HANTEK_CHANNELS];
 		/// The index of the selected gain on the hardware
 		QList<unsigned char> gainIndex;
+		QList<unsigned char> gainDiv;
 		/// Calibration data for the channel offsets \todo Should probably be a QList too
 		unsigned short int offsetLimit[HANTEK_CHANNELS][9][OFFSET_COUNT];
 	};
