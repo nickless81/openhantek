@@ -648,6 +648,7 @@ namespace Hantek {
 		MODEL_DSO2250,      ///< %Hantek DSO-2250 USB
 		MODEL_DSO5200,      ///< %Hantek DSO-5200 USB
 		MODEL_DSO5200A,     ///< %Hantek DSO-5200A USB
+		MODEL_DSO6022BE,    ///< %Hantek6022BE USB
 		MODEL_COUNT
 	};
 	
