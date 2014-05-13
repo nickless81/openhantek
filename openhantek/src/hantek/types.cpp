@@ -1030,4 +1030,44 @@ namespace Hantek {
 	void ControlSetRelays::setTrigger(bool ext) {
 		this->array[7] = ext ? 0xfe : 0x01;
 	}
+
+	//////////////////////////////////////////////////////////////////////////////
+	// class ControlE0
+	/// \brief Sets the data array to the default values.
+	ControlE0::ControlE0() : Helper::DataArray<uint8_t>(1) {
+	}
+
+	void ControlE0::init() {
+		this->array[0] = 0x05;
+	}
+
+	//////////////////////////////////////////////////////////////////////////////
+	// class ControlE1
+	/// \brief Sets the data array to the default values.
+	ControlE1::ControlE1() : Helper::DataArray<uint8_t>(1) {
+	}
+
+	void ControlE1::init() {
+		this->array[0] = 0x0a;
+	}
+
+	//////////////////////////////////////////////////////////////////////////////
+	// class ControlE0
+	/// \brief Sets the data array to the default values.
+	ControlE2::ControlE2() : Helper::DataArray<uint8_t>(1) {
+	}
+
+	void ControlE2::init() {
+		this->array[0] = 0x01;
+	}
+
+	//////////////////////////////////////////////////////////////////////////////
+	// class ControlE0
+	/// \brief Sets the data array to the default values.
+	ControlE3::ControlE3() : Helper::DataArray<uint8_t>(1) {
+	}
+
+	void ControlE3::init() {
+		this->array[0] = 0x01;
+	}
 }
