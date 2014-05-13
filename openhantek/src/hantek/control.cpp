@@ -899,6 +899,25 @@ namespace Hantek {
 				this->commandPending[BULK_ESETTRIGGERORSAMPLERATE] = true;
 				
 				break;
+
+			case MODEL_DSO6022BE:
+				// 6022BE do not support any bulk commands
+				this->control[CONTROLINDEX_E0] = new ControlE0();
+				this->controlCode[CONTROLINDEX_E0] = CONTROL_E0;
+				this->controlPending[CONTROLINDEX_E0] = true;
+
+				this->control[CONTROLINDEX_E1] = new ControlE1();
+				this->controlCode[CONTROLINDEX_E1] = CONTROL_E1;
+				this->controlPending[CONTROLINDEX_E1] = true;
+
+				this->control[CONTROLINDEX_E2] = new ControlE2();
+				this->controlCode[CONTROLINDEX_E2] = CONTROL_E2;
+				this->controlPending[CONTROLINDEX_E2] = true;
+
+				this->control[CONTROLINDEX_E3] = new ControlE3();
+				this->controlCode[CONTROLINDEX_E3] = CONTROL_E3;
+				this->controlPending[CONTROLINDEX_E3] = true;
+				break;
 			
 			default:
 				this->device->disconnect();
@@ -983,6 +1002,26 @@ namespace Hantek {
 				this->specification.sampleSize = 8;
 				break;
 			
+			case MODEL_DSO6022BE:
+				this->specification.samplerate.single.base = 125e6;
+				this->specification.samplerate.single.max = 125e6;
+				this->specification.samplerate.single.maxDownsampler = 131072;
+				this->specification.samplerate.single.recordLengths << UINT_MAX << 10240 << 32768;
+				this->specification.samplerate.multi.base = 250e6;
+				this->specification.samplerate.multi.max = 250e6;
+				this->specification.samplerate.multi.maxDownsampler = 131072;
+				this->specification.samplerate.multi.recordLengths << UINT_MAX << 20480 << 65536;
+				this->specification.bufferDividers << 1000 << 1 << 1;
+				this->specification.gainSteps
+					<< 0.08 << 0.16 << 0.40 << 0.80 << 1.60 << 4.00 <<  8.0 << 16.0 << 40.0;
+				for(int channel = 0; channel < HANTEK_CHANNELS; ++channel)
+					this->specification.voltageLimit[channel]
+					<<  255 <<  255 <<  255 <<  255 <<  255 <<  255 <<  255 <<  255 <<  255;
+				this->specification.gainIndex
+					<<    0 <<    1 <<    2 <<    0 <<    1 <<    2 <<    0 <<    1 <<    2;
+				this->specification.sampleSize = 8;
+				break;
+
 			default:
 				this->specification.samplerate.single.base = 125e6;
 				this->specification.samplerate.single.max = 125e6;
