@@ -902,21 +902,21 @@ namespace Hantek {
 
 			case MODEL_DSO6022BE:
 				// 6022BE do not support any bulk commands
-				this->control[CONTROLINDEX_E0] = new ControlE0();
-				this->controlCode[CONTROLINDEX_E0] = CONTROL_E0;
-				this->controlPending[CONTROLINDEX_E0] = true;
+				this->control[CONTROLINDEX_SETVOLTDIV_CH1] = new ControlSetVoltDIV_CH1();
+				this->controlCode[CONTROLINDEX_SETVOLTDIV_CH1] = CONTROL_SETVOLTDIV_CH1;
+				this->controlPending[CONTROLINDEX_SETVOLTDIV_CH1] = true;
 
-				this->control[CONTROLINDEX_E1] = new ControlE1();
-				this->controlCode[CONTROLINDEX_E1] = CONTROL_E1;
-				this->controlPending[CONTROLINDEX_E1] = true;
+				this->control[CONTROLINDEX_SETVOLTDIV_CH2] = new ControlSetVoltDIV_CH2();
+				this->controlCode[CONTROLINDEX_SETVOLTDIV_CH2] = CONTROL_SETVOLTDIV_CH2;
+				this->controlPending[CONTROLINDEX_SETVOLTDIV_CH2] = true;
 
-				this->control[CONTROLINDEX_E2] = new ControlE2();
-				this->controlCode[CONTROLINDEX_E2] = CONTROL_E2;
-				this->controlPending[CONTROLINDEX_E2] = true;
+				this->control[CONTROLINDEX_SETTIMEDIV] = new ControlSetTimeDIV();
+				this->controlCode[CONTROLINDEX_SETTIMEDIV] = CONTROL_SETTIMEDIV;
+				this->controlPending[CONTROLINDEX_SETTIMEDIV] = true;
 
-				this->control[CONTROLINDEX_E3] = new ControlE3();
-				this->controlCode[CONTROLINDEX_E3] = CONTROL_E3;
-				this->controlPending[CONTROLINDEX_E3] = true;
+				this->control[CONTROLINDEX_ACQUIIRE_HARD_DATA] = new ControlAcquireHardData();
+				this->controlCode[CONTROLINDEX_ACQUIIRE_HARD_DATA] = CONTROL_ACQUIIRE_HARD_DATA;
+				this->controlPending[CONTROLINDEX_ACQUIIRE_HARD_DATA] = true;
 				break;
 			
 			default:

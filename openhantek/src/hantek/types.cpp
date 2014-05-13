@@ -1032,46 +1032,46 @@ namespace Hantek {
 	}
 
 	//////////////////////////////////////////////////////////////////////////////
-	// class ControlE0
+	// class ControlSetVoltDIV_CH1
 	/// \brief Sets the data array to the default values.
-	ControlE0::ControlE0() : Helper::DataArray<uint8_t>(1) {
+	ControlSetVoltDIV_CH1::ControlSetVoltDIV_CH1() : Helper::DataArray<uint8_t>(1) {
 		this->init();
 	}
 
-	void ControlE0::init() {
+	void ControlSetVoltDIV_CH1::init() {
 		this->array[0] = 0x05;
 	}
 
 	//////////////////////////////////////////////////////////////////////////////
-	// class ControlE1
+	// class ControlSetVoltDIV_CH2
 	/// \brief Sets the data array to the default values.
-	ControlE1::ControlE1() : Helper::DataArray<uint8_t>(1) {
+	ControlSetVoltDIV_CH2::ControlSetVoltDIV_CH2() : Helper::DataArray<uint8_t>(1) {
 		this->init();
 	}
 
-	void ControlE1::init() {
+	void ControlSetVoltDIV_CH2::init() {
 		this->array[0] = 0x0a;
 	}
 
 	//////////////////////////////////////////////////////////////////////////////
-	// class ControlE0
+	// class ControlSetVoltDIV_CH1
 	/// \brief Sets the data array to the default values.
-	ControlE2::ControlE2() : Helper::DataArray<uint8_t>(1) {
+	ControlSetTimeDIV::ControlSetTimeDIV() : Helper::DataArray<uint8_t>(1) {
 		this->init();
 	}
 
-	void ControlE2::init() {
+	void ControlSetTimeDIV::init() {
 		this->array[0] = 0x01;
 	}
 
 	//////////////////////////////////////////////////////////////////////////////
-	// class ControlE0
+	// class ControlSetVoltDIV_CH1
 	/// \brief Sets the data array to the default values.
-	ControlE3::ControlE3() : Helper::DataArray<uint8_t>(1) {
+	ControlAcquireHardData::ControlAcquireHardData() : Helper::DataArray<uint8_t>(1) {
 		this->init();
 	}
 
-	void ControlE3::init() {
+	void ControlAcquireHardData::init() {
 		this->array[0] = 0x01;
 	}
 }

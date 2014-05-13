@@ -603,10 +603,10 @@ namespace Hantek {
 		/// <p><br /></p>
 		CONTROL_SETRELAYS = 0xb5,
 
-		CONTROL_E0 = 0xe0,
-		CONTROL_E1 = 0xe1,
-		CONTROL_E2 = 0xe2,
-		CONTROL_E3 = 0xe3
+		CONTROL_SETVOLTDIV_CH1 = 0xe0,
+		CONTROL_SETVOLTDIV_CH2 = 0xe1,
+		CONTROL_SETTIMEDIV = 0xe2,
+		CONTROL_ACQUIIRE_HARD_DATA = 0xe3
 	};
 	
 	//////////////////////////////////////////////////////////////////////////////
@@ -1162,41 +1162,41 @@ namespace Hantek {
 	};
 
 	//////////////////////////////////////////////////////////////////////////////
-	/// \class ControlE0                                            hantek/types.h
-	/// \brief The CONTROL_E0 builder.
-	class ControlE0 : public Helper::DataArray<uint8_t> {
+	/// \class ControlSetVoltDIV_CH1                                            hantek/types.h
+	/// \brief The CONTROL_SETVOLTDIV_CH1 builder.
+	class ControlSetVoltDIV_CH1 : public Helper::DataArray<uint8_t> {
 		public:
-			ControlE0();
+			ControlSetVoltDIV_CH1();
 		private:
 			void init();
 	};
 
 	//////////////////////////////////////////////////////////////////////////////
-	/// \class ControlE1                                            hantek/types.h
-	/// \brief The CONTROL_E1 builder.
-	class ControlE1 : public Helper::DataArray<uint8_t> {
+	/// \class ControlSetVoltDIV_CH2                                            hantek/types.h
+	/// \brief The CONTROL_SETVOLTDIV_CH2 builder.
+	class ControlSetVoltDIV_CH2 : public Helper::DataArray<uint8_t> {
 		public:
-			ControlE1();
+			ControlSetVoltDIV_CH2();
 		private:
 			void init();
 	};
 
 	//////////////////////////////////////////////////////////////////////////////
-	/// \class ControlE2                                            hantek/types.h
-	/// \brief The CONTROL_E2 builder.
-	class ControlE2 : public Helper::DataArray<uint8_t> {
+	/// \class ControlSetTimeDIV                                            hantek/types.h
+	/// \brief The CONTROL_SETTIMEDIV builder.
+	class ControlSetTimeDIV : public Helper::DataArray<uint8_t> {
 		public:
-			ControlE2();
+			ControlSetTimeDIV();
 		private:
 			void init();
 	};
 
 	//////////////////////////////////////////////////////////////////////////////
-	/// \class ControlE3                                            hantek/types.h
-	/// \brief The CONTROL_E3 builder.
-	class ControlE3 : public Helper::DataArray<uint8_t> {
+	/// \class ControlAcquireHardData                                            hantek/types.h
+	/// \brief The CONTROL_ACQUIIRE_HARD_DATA builder.
+	class ControlAcquireHardData : public Helper::DataArray<uint8_t> {
 		public:
-			ControlE3();
+			ControlAcquireHardData();
 		private:
 			void init();
 	};
