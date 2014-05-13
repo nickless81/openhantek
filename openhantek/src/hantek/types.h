@@ -601,11 +601,11 @@ namespace Hantek {
 		///   The limits are <= instead of < for the 10 bit models, since those support voltages up to 10 V.
 		/// </p>
 		/// <p><br /></p>
-		CONTROL_SETRELAYS = 0xb5
+		CONTROL_SETRELAYS = 0xb5,
 
-		CONTROL_E0 = 0xe0
-		CONTROL_E1 = 0xe1
-		CONTROL_E2 = 0xe2
+		CONTROL_E0 = 0xe0,
+		CONTROL_E1 = 0xe1,
+		CONTROL_E2 = 0xe2,
 		CONTROL_E3 = 0xe3
 	};
 	
@@ -1165,6 +1165,8 @@ namespace Hantek {
 	/// \class ControlE0                                            hantek/types.h
 	/// \brief The CONTROL_E0 builder.
 	class ControlE0 : public Helper::DataArray<uint8_t> {
+		public:
+			ControlE0();
 		private:
 			void init();
 	};
@@ -1173,6 +1175,8 @@ namespace Hantek {
 	/// \class ControlE1                                            hantek/types.h
 	/// \brief The CONTROL_E1 builder.
 	class ControlE1 : public Helper::DataArray<uint8_t> {
+		public:
+			ControlE1();
 		private:
 			void init();
 	};
@@ -1181,6 +1185,8 @@ namespace Hantek {
 	/// \class ControlE2                                            hantek/types.h
 	/// \brief The CONTROL_E2 builder.
 	class ControlE2 : public Helper::DataArray<uint8_t> {
+		public:
+			ControlE2();
 		private:
 			void init();
 	};
@@ -1189,6 +1195,8 @@ namespace Hantek {
 	/// \class ControlE3                                            hantek/types.h
 	/// \brief The CONTROL_E3 builder.
 	class ControlE3 : public Helper::DataArray<uint8_t> {
+		public:
+			ControlE3();
 		private:
 			void init();
 	};
