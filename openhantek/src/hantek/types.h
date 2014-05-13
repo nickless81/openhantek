@@ -602,6 +602,11 @@ namespace Hantek {
 		/// </p>
 		/// <p><br /></p>
 		CONTROL_SETRELAYS = 0xb5
+
+		CONTROL_E0 = 0xe0
+		CONTROL_E1 = 0xe1
+		CONTROL_E2 = 0xe2
+		CONTROL_E3 = 0xe3
 	};
 	
 	//////////////////////////////////////////////////////////////////////////////
@@ -1154,6 +1159,38 @@ namespace Hantek {
 			void setCoupling(unsigned int channel, bool dc);
 			bool getTrigger();
 			void setTrigger(bool ext);
+	};
+
+	//////////////////////////////////////////////////////////////////////////////
+	/// \class ControlE0                                            hantek/types.h
+	/// \brief The CONTROL_E0 builder.
+	class ControlE0 : public Helper::DataArray<uint8_t> {
+		private:
+			void init();
+	};
+
+	//////////////////////////////////////////////////////////////////////////////
+	/// \class ControlE1                                            hantek/types.h
+	/// \brief The CONTROL_E1 builder.
+	class ControlE1 : public Helper::DataArray<uint8_t> {
+		private:
+			void init();
+	};
+
+	//////////////////////////////////////////////////////////////////////////////
+	/// \class ControlE2                                            hantek/types.h
+	/// \brief The CONTROL_E2 builder.
+	class ControlE2 : public Helper::DataArray<uint8_t> {
+		private:
+			void init();
+	};
+
+	//////////////////////////////////////////////////////////////////////////////
+	/// \class ControlE3                                            hantek/types.h
+	/// \brief The CONTROL_E3 builder.
+	class ControlE3 : public Helper::DataArray<uint8_t> {
+		private:
+			void init();
 	};
 }
 
