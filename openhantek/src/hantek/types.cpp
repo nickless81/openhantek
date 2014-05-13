@@ -1035,6 +1035,7 @@ namespace Hantek {
 	// class ControlE0
 	/// \brief Sets the data array to the default values.
 	ControlE0::ControlE0() : Helper::DataArray<uint8_t>(1) {
+		this->init();
 	}
 
 	void ControlE0::init() {
@@ -1045,6 +1046,7 @@ namespace Hantek {
 	// class ControlE1
 	/// \brief Sets the data array to the default values.
 	ControlE1::ControlE1() : Helper::DataArray<uint8_t>(1) {
+		this->init();
 	}
 
 	void ControlE1::init() {
@@ -1055,6 +1057,7 @@ namespace Hantek {
 	// class ControlE0
 	/// \brief Sets the data array to the default values.
 	ControlE2::ControlE2() : Helper::DataArray<uint8_t>(1) {
+		this->init();
 	}
 
 	void ControlE2::init() {
@@ -1065,6 +1068,7 @@ namespace Hantek {
 	// class ControlE0
 	/// \brief Sets the data array to the default values.
 	ControlE3::ControlE3() : Helper::DataArray<uint8_t>(1) {
+		this->init();
 	}
 
 	void ControlE3::init() {
