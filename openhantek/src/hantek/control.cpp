@@ -1019,6 +1019,8 @@ namespace Hantek {
 					<<  255 <<  255 <<  255 <<  255 <<  255 <<  255 <<  255 <<  255 <<  255;
 				this->specification.gainIndex
 					<<    0 <<    1 <<    2 <<    0 <<    1 <<    2 <<    0 <<    1 <<    2;
+				this->specification.gainDiv
+					<<   10 <<   10 <<   10 <<   10 <<   10 <<   10 <<   10 <<    5 <<    2;
 				this->specification.sampleSize = 8;
 				break;
 
@@ -1247,21 +1249,32 @@ namespace Hantek {
 		for(gainId = 0; gainId < this->specification.gainSteps.count() - 1; ++gainId)
 			if(this->specification.gainSteps[gainId] >= gain)
 				break;
+
+		// Fixme, shoulb be some kind of protocol check instead of model check.
+		if (this->device->getModel() == MODEL_DSO6022BE) {
+			if (channel == 0) {
+				static_cast<ControlSetVoltDIV_CH1 *>(this->control[CONTROLINDEX_SETVOLTDIV_CH1])->setDiv(this->specification.gainDiv[gainId]);
+				this->controlPending[CONTROLINDEX_SETVOLTDIV_CH1] = true;
+			} else if (channel == 1) {
+				static_cast<ControlSetVoltDIV_CH2 *>(this->control[CONTROLINDEX_SETVOLTDIV_CH2])->setDiv(this->specification.gainDiv[gainId]);
+				this->controlPending[CONTROLINDEX_SETVOLTDIV_CH2] = true;
+			} else
+				qDebug("%s: Unsuported channel: %i\n", __func__, channel);
+		} else {
+			// SetGain bulk command for gain
+			static_cast<BulkSetGain *>(this->command[BULK_SETGAIN])->setGain(channel, this->specification.gainIndex[gainId]);
+			this->commandPending[BULK_SETGAIN] = true;
 		
-		// SetGain bulk command for gain
-		static_cast<BulkSetGain *>(this->command[BULK_SETGAIN])->setGain(channel, this->specification.gainIndex[gainId]);
-		this->commandPending[BULK_SETGAIN] = true;
-		
-		// SetRelays control command for gain relays
-		ControlSetRelays *controlSetRelays = static_cast<ControlSetRelays *>(this->control[CONTROLINDEX_SETRELAYS]);
-		controlSetRelays->setBelow1V(channel, gainId < 3);
-		controlSetRelays->setBelow100mV(channel, gainId < 6);
-		this->controlPending[CONTROLINDEX_SETRELAYS] = true;
-		
+			// SetRelays control command for gain relays
+			ControlSetRelays *controlSetRelays = static_cast<ControlSetRelays *>(this->control[CONTROLINDEX_SETRELAYS]);
+			controlSetRelays->setBelow1V(channel, gainId < 3);
+			controlSetRelays->setBelow100mV(channel, gainId < 6);
+			this->controlPending[CONTROLINDEX_SETRELAYS] = true;
+		}
+
 		this->settings.voltage[channel].gain = gainId;
 		
 		this->setOffset(channel, this->settings.voltage[channel].offset);
-		
 		return this->specification.gainSteps[gainId];
 	}
 	
