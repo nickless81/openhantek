@@ -341,6 +341,10 @@ namespace Hantek {
 	/// \return The current CaptureState of the oscilloscope, libusb error code on error.
 	int Control::getCaptureState() {
 		int errorCode;
+
+		// Command not supported by this model
+		if (this->device->getModel() == MODEL_DSO6022BE)
+			return CAPTURE_READY;
 		
 		errorCode = this->device->bulkCommand(this->command[BULK_GETCAPTURESTATE], 1);
 		if(errorCode < 0)
@@ -360,11 +364,13 @@ namespace Hantek {
 	/// \return sample count on success, libusb error code on error.
 	int Control::getSamples(bool process) {
 		int errorCode;
-		
-		// Request data
-		errorCode = this->device->bulkCommand(this->command[BULK_GETDATA], 1);
-		if(errorCode < 0)
-			return errorCode;
+
+		if (this->device->getModel() != MODEL_DSO6022BE) {
+			// Request data
+			errorCode = this->device->bulkCommand(this->command[BULK_GETDATA], 1);
+			if(errorCode < 0)
+				return errorCode;
+		}
 		
 		// Save raw data to temporary buffer
 		bool fastRate = false;
