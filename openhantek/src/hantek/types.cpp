@@ -1035,26 +1035,26 @@ namespace Hantek {
 	// class ControlSetVoltDIV_CH1
 	/// \brief Sets the data array to the default values.
 	ControlSetVoltDIV_CH1::ControlSetVoltDIV_CH1() : Helper::DataArray<uint8_t>(1) {
-		this->init();
+		this->setDiv(5);
 	}
 
-	void ControlSetVoltDIV_CH1::init() {
-		this->array[0] = 0x05;
+	void ControlSetVoltDIV_CH1::setDiv(uint8_t val) {
+		this->array[0] = val;
 	}
 
 	//////////////////////////////////////////////////////////////////////////////
 	// class ControlSetVoltDIV_CH2
 	/// \brief Sets the data array to the default values.
 	ControlSetVoltDIV_CH2::ControlSetVoltDIV_CH2() : Helper::DataArray<uint8_t>(1) {
-		this->init();
+		this->setDiv(5);
 	}
 
-	void ControlSetVoltDIV_CH2::init() {
-		this->array[0] = 0x0a;
+	void ControlSetVoltDIV_CH2::setDiv(uint8_t val) {
+		this->array[0] = val;
 	}
 
 	//////////////////////////////////////////////////////////////////////////////
-	// class ControlSetVoltDIV_CH1
+	// class ControlSetTimeDIV
 	/// \brief Sets the data array to the default values.
 	ControlSetTimeDIV::ControlSetTimeDIV() : Helper::DataArray<uint8_t>(1) {
 		this->init();
@@ -1065,7 +1065,7 @@ namespace Hantek {
 	}
 
 	//////////////////////////////////////////////////////////////////////////////
-	// class ControlSetVoltDIV_CH1
+	// class ControlAcquireHardData
 	/// \brief Sets the data array to the default values.
 	ControlAcquireHardData::ControlAcquireHardData() : Helper::DataArray<uint8_t>(1) {
 		this->init();
