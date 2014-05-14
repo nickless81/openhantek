@@ -1167,8 +1167,7 @@ namespace Hantek {
 	class ControlSetVoltDIV_CH1 : public Helper::DataArray<uint8_t> {
 		public:
 			ControlSetVoltDIV_CH1();
-		private:
-			void init();
+			void setDiv(uint8_t val);
 	};
 
 	//////////////////////////////////////////////////////////////////////////////
@@ -1177,9 +1176,9 @@ namespace Hantek {
 	class ControlSetVoltDIV_CH2 : public Helper::DataArray<uint8_t> {
 		public:
 			ControlSetVoltDIV_CH2();
-		private:
-			void init();
+			void setDiv(uint8_t val);
 	};
+
 
 	//////////////////////////////////////////////////////////////////////////////
 	/// \class ControlSetTimeDIV                                            hantek/types.h
