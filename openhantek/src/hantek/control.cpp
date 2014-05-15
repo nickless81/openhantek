@@ -494,7 +494,11 @@ namespace Hantek {
 							}
 						}
 						else {
-							bufferPosition += HANTEK_CHANNELS - 1 - channel;
+							if (this->device->getModel() == MODEL_DSO6022BE)
+								bufferPosition += channel;
+							else
+								bufferPosition += HANTEK_CHANNELS - 1 - channel;
+
 							for(unsigned int realPosition = 0; realPosition < sampleCount; ++realPosition, bufferPosition += HANTEK_CHANNELS) {
 								if(bufferPosition >= totalSampleCount)
 									bufferPosition %= totalSampleCount;
