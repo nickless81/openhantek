@@ -502,8 +502,16 @@ namespace Hantek {
 							for(unsigned int realPosition = 0; realPosition < sampleCount; ++realPosition, bufferPosition += HANTEK_CHANNELS) {
 								if(bufferPosition >= totalSampleCount)
 									bufferPosition %= totalSampleCount;
-								
-								this->samples[channel][realPosition] = ((double) data[bufferPosition] / this->specification.voltageLimit[channel][this->settings.voltage[channel].gain] - this->settings.voltage[channel].offsetReal) * this->specification.gainSteps[this->settings.voltage[channel].gain];
+
+								if (this->device->getModel() == MODEL_DSO6022BE)
+									this->samples[channel][realPosition] = (((double) data[bufferPosition] - 0x83)
+										 / this->specification.voltageLimit[channel][this->settings.voltage[channel].gain])
+										* this->specification.gainSteps[this->settings.voltage[channel].gain];
+								else
+									this->samples[channel][realPosition] = ((double) data[bufferPosition]
+										 / this->specification.voltageLimit[channel][this->settings.voltage[channel].gain]
+										 - this->settings.voltage[channel].offsetReal)
+										* this->specification.gainSteps[this->settings.voltage[channel].gain];
 							}
 						}
 					}
