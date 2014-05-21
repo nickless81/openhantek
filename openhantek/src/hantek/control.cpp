@@ -1013,24 +1013,24 @@ namespace Hantek {
 				break;
 			
 			case MODEL_DSO6022BE:
-				this->specification.samplerate.single.base = 125e6;
-				this->specification.samplerate.single.max = 125e6;
-				this->specification.samplerate.single.maxDownsampler = 131072;
+				this->specification.samplerate.single.base = 48e6;
+				this->specification.samplerate.single.max = 48e6;
+				this->specification.samplerate.single.maxDownsampler = 1;
 				this->specification.samplerate.single.recordLengths << UINT_MAX << 10240 << 32768;
-				this->specification.samplerate.multi.base = 250e6;
-				this->specification.samplerate.multi.max = 250e6;
-				this->specification.samplerate.multi.maxDownsampler = 131072;
+				this->specification.samplerate.multi.base = 48e6;
+				this->specification.samplerate.multi.max = 48e6;
+				this->specification.samplerate.multi.maxDownsampler = 1;
 				this->specification.samplerate.multi.recordLengths << UINT_MAX << 20480 << 65536;
 				this->specification.bufferDividers << 1000 << 1 << 1;
 				this->specification.gainSteps
-					<< 0.08 << 0.16 << 0.40 << 0.80 << 1.60 << 4.00 <<  8.0 << 16.0 << 40.0;
+					<< 0.08 << 0.16 << 0.40 << 0.80 << 1.60 << 4.00 <<  8.0 << 16.0 <<  40.0;
+				// This data was based on testing and depends on Divider.
 				for(int channel = 0; channel < HANTEK_CHANNELS; ++channel)
 					this->specification.voltageLimit[channel]
-					<<  255 <<  255 <<  255 <<  255 <<  255 <<  255 <<  255 <<  255 <<  255;
-				this->specification.gainIndex
-					<<    0 <<    1 <<    2 <<    0 <<    1 <<    2 <<    0 <<    1 <<    2;
+					<<   25 <<   51 <<  103 <<  206 <<  412 << 196 <<  392 <<   784 << 1000;
+				// Divider. Tested and calculated results are different!
 				this->specification.gainDiv
-					<<   10 <<   10 <<   10 <<   10 <<   10 <<   10 <<   10 <<    5 <<    2;
+					<<   10 <<   10 <<   10 <<   10 <<   10 <<   2 <<    2 <<    2 <<    1;
 				this->specification.sampleSize = 8;
 				break;
 
