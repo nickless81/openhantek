@@ -136,7 +136,10 @@ namespace Hantek {
 										this->outPacketLength = endpointDescriptor->wMaxPacketSize;
 										break;
 									case HANTEK_EP_IN:
-										this->inPacketLength = endpointDescriptor->wMaxPacketSize;
+										if (this->getModel() == MODEL_DSO6022BE)
+											this->inPacketLength = 16384;
+										else
+											this->inPacketLength = endpointDescriptor->wMaxPacketSize;
 										break;
 								}
 							}
@@ -217,7 +220,10 @@ namespace Hantek {
 										this->outPacketLength = endpointDescriptor->wMaxPacketSize;
 										break;
 									case HANTEK_EP_IN:
-										this->inPacketLength = endpointDescriptor->wMaxPacketSize;
+										if (this->getModel() == MODEL_DSO6022BE)
+											this->inPacketLength = 16384;
+										else
+											this->inPacketLength = endpointDescriptor->wMaxPacketSize;
 										break;
 								}
 							}
