@@ -839,6 +839,7 @@ namespace Hantek {
 				delete this->command[command];
 			this->commandPending[command] = false;
 		}
+#if 0
 		// Instantiate the commands needed for all models
 		this->command[BULK_FORCETRIGGER] = new BulkForceTrigger();
 		this->command[BULK_STARTSAMPLING] = new BulkCaptureStart();
@@ -853,6 +854,7 @@ namespace Hantek {
 		this->specification.command.bulk.setSamplerate = (BulkCode) -1;
 		this->specification.command.bulk.setTrigger = (BulkCode) -1;
 		this->specification.command.bulk.setPretrigger = (BulkCode) -1;
+#endif
 		this->specification.command.control.setOffset = CONTROL_SETOFFSET;
 		this->specification.command.control.setRelays = CONTROL_SETRELAYS;
 		this->specification.command.values.offsetLimits = VALUE_OFFSETLIMITS;
@@ -1243,7 +1245,10 @@ namespace Hantek {
 		
 		if(channel >= HANTEK_CHANNELS)
 			return Dso::ERROR_PARAMETER;
-		
+
+	//	if (this->device->getModel() == MODEL_DSO6022BE)
+	//		Dso::ERROR_NONE;
+
 		// SetRelays control command for coupling relays
 		static_cast<ControlSetRelays *>(this->control[CONTROLINDEX_SETRELAYS])->setCoupling(channel, coupling != Dso::COUPLING_AC);
 		this->controlPending[CONTROLINDEX_SETRELAYS] = true;
@@ -1292,7 +1297,7 @@ namespace Hantek {
 
 		this->settings.voltage[channel].gain = gainId;
 		
-		this->setOffset(channel, this->settings.voltage[channel].offset);
+		//this->setOffset(channel, this->settings.voltage[channel].offset);
 		return this->specification.gainSteps[gainId];
 	}
 	
@@ -1311,12 +1316,16 @@ namespace Hantek {
 		// The range is given by the calibration data (convert from big endian)
 		unsigned short int minimum = ((unsigned short int) *((unsigned char *) &(this->specification.offsetLimit[channel][this->settings.voltage[channel].gain][OFFSET_START])) << 8) + *((unsigned char *) &(this->specification.offsetLimit[channel][this->settings.voltage[channel].gain][OFFSET_START]) + 1);
 		unsigned short int maximum = ((unsigned short int) *((unsigned char *) &(this->specification.offsetLimit[channel][this->settings.voltage[channel].gain][OFFSET_END])) << 8) + *((unsigned char *) &(this->specification.offsetLimit[channel][this->settings.voltage[channel].gain][OFFSET_END]) + 1);
+
+
 		unsigned short int offsetValue = offset * (maximum - minimum) + minimum + 0.5;
-		double offsetReal = (double) (offsetValue - minimum) / (maximum - minimum);
+
+		double offsetReal = 0x80 / this->specification.voltageLimit[channel][this->settings.voltage[channel].gain];
+	//	double offsetReal = (double) (offsetValue - minimum) / (maximum - minimum);
 		
 		// SetOffset control command for channel offset
-		static_cast<ControlSetOffset *>(this->control[CONTROLINDEX_SETOFFSET])->setChannel(channel, offsetValue);
-		this->controlPending[CONTROLINDEX_SETOFFSET] = true;
+		//static_cast<ControlSetOffset *>(this->control[CONTROLINDEX_SETOFFSET])->setChannel(channel, offsetValue);
+		//this->controlPending[CONTROLINDEX_SETOFFSET] = true;
 		
 		this->settings.voltage[channel].offset = offset;
 		this->settings.voltage[channel].offsetReal = offsetReal;
@@ -1383,8 +1392,8 @@ namespace Hantek {
 		// Apply trigger level of the new source
 		if(special) {
 			// SetOffset control command for changed trigger level
-			static_cast<ControlSetOffset *>(this->control[CONTROLINDEX_SETOFFSET])->setTrigger(0x7f);
-			this->controlPending[CONTROLINDEX_SETOFFSET] = true;
+		//	static_cast<ControlSetOffset *>(this->control[CONTROLINDEX_SETOFFSET])->setTrigger(0x7f);
+		//	this->controlPending[CONTROLINDEX_SETOFFSET] = true;
 		}
 		else
 			this->setTriggerLevel(id, this->settings.trigger.level[id]);
@@ -1402,6 +1411,9 @@ namespace Hantek {
 		
 		if(channel >= HANTEK_CHANNELS)
 			return Dso::ERROR_PARAMETER;
+
+//		if (this->device->getModel() == MODEL_DSO6022BE)
+//			return Dso::ERROR_NONE;
 		
 		// Calculate the trigger level value
 		unsigned short int minimum, maximum;
@@ -1424,7 +1436,8 @@ namespace Hantek {
 		unsigned short int levelValue = qBound((long int) minimum, (long int) ((this->settings.voltage[channel].offsetReal + level / this->specification.gainSteps[this->settings.voltage[channel].gain]) * (maximum - minimum) + 0.5) + minimum, (long int) maximum);
 		
 		// Check if the set channel is the trigger source
-		if(!this->settings.trigger.special && channel == this->settings.trigger.source) {
+		if(!this->settings.trigger.special && channel == this->settings.trigger.source &&
+				this->device->getModel() != MODEL_DSO6022BE) {
 			// SetOffset control command for trigger level
 			static_cast<ControlSetOffset *>(this->control[CONTROLINDEX_SETOFFSET])->setTrigger(levelValue);
 			this->controlPending[CONTROLINDEX_SETOFFSET] = true;

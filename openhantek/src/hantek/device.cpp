@@ -366,9 +366,10 @@ namespace Hantek {
 	int Device::bulkCommand(Helper::DataArray<unsigned char> *command, int attempts) {
 		if(!this->handle)
 			return LIBUSB_ERROR_NO_DEVICE;
-		
+		return 0;	
 		// Send BeginCommand control command
-		int errorCode = this->controlWrite(CONTROL_BEGINCOMMAND, this->beginCommandControl->data(), this->beginCommandControl->getSize());
+		//int errorCode = this->controlWrite(CONTROL_BEGINCOMMAND, this->beginCommandControl->data(), this->beginCommandControl->getSize());
+		int errorCode = 0;
 		if(errorCode < 0)
 			return errorCode;
 		
