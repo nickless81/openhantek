@@ -463,7 +463,8 @@ void OpenHantekMainWindow::stopped() {
 }
 
 void OpenHantekMainWindow::hard_event(int type, int value) {
-	int i;
+    Q_UNUSED(value);
+    int i;
 
 	switch (type) {
 	case PANEL_SW_R_RUN_STOP:
