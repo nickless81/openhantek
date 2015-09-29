@@ -408,6 +408,7 @@ void TriggerDock::sourceSelected(int index) {
 
 void TriggerDock::hard_event(int type, int value)
 {
+    Q_UNUSED(value);
 	switch (type) {
 	case PANEL_SW_R_MODE:
 		modeComboBox->setCurrentIndex((modeComboBox->currentIndex() + 1) % modeComboBox->count());

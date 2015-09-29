@@ -1319,7 +1319,7 @@ namespace Hantek {
 
 
 		unsigned short int offsetValue = offset * (maximum - minimum) + minimum + 0.5;
-
+        Q_UNUSED(offsetValue);
 		double offsetReal = 0x80 / this->specification.voltageLimit[channel][this->settings.voltage[channel].gain];
 	//	double offsetReal = (double) (offsetValue - minimum) / (maximum - minimum);
 		
