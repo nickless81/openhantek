@@ -1,0 +1,32 @@
+# Hantek DSO-2090
+SUBSYSTEM=="usb", ACTION=="add", ENV{DEVTYPE}=="usb_device", ENV{PRODUCT}=="4b4/2090/*", RUN+="/sbin/fxload -t fx2 -I /usr/local/share/hantek/dso2090-firmware.hex -s /usr/local/share/hantek/dso2090-loader.hex -D $env{DEVNAME}"
+SYSFS{idVendor}=="04b5", SYSFS{idProduct}=="2090", MODE="0660", GROUP="plugdev"
+
+# Hantek DSO-2100
+SUBSYSTEM=="usb", ACTION=="add", ENV{DEVTYPE}=="usb_device", ENV{PRODUCT}=="547/1006/*", RUN+="/sbin/fxload -t an21 -I /usr/local/share/hantek/dso2100-firmware.hex -s /usr/local/share/hantek/dso2100-loader.hex -D $env{DEVNAME}"
+SYSFS{idVendor}=="0547", SYSFS{idProduct}=="1002", MODE="0660", GROUP="plugdev"
+
+# Hantek DSO-2150
+SUBSYSTEM=="usb", ACTION=="add", ENV{DEVTYPE}=="usb_device", ENV{PRODUCT}=="4b4/2150/*", RUN+="/sbin/fxload -t fx2 -I /usr/local/share/hantek/dso2150-firmware.hex -s /usr/local/share/hantek/dso2150-loader.hex -D $env{DEVNAME}"
+SYSFS{idVendor}=="04b5", SYSFS{idProduct}=="2150", MODE="0660", GROUP="plugdev"
+
+# Hantek DSO-2250
+SUBSYSTEM=="usb", ACTION=="add", ENV{DEVTYPE}=="usb_device", ENV{PRODUCT}=="4b4/2250/*", RUN+="/sbin/fxload -t fx2 -I /usr/local/share/hantek/dso2250-firmware.hex -s /usr/local/share/hantek/dso2250-loader.hex -D $env{DEVNAME}"
+SYSFS{idVendor}=="04b5", SYSFS{idProduct}=="2250", MODE="0660", GROUP="plugdev"
+
+# Hantek DSO-5200
+SUBSYSTEM=="usb", ACTION=="add", ENV{DEVTYPE}=="usb_device", ENV{PRODUCT}=="4b4/5200/*", RUN+="/sbin/fxload -t fx2 -I /usr/local/share/hantek/dso5200-firmware.hex -s /usr/local/share/hantek/dso5200-loader.hex -D $env{DEVNAME}"
+SYSFS{idVendor}=="04b5", SYSFS{idProduct}=="5200", MODE="0660", GROUP="plugdev"
+
+# Hantek DSO-5200A
+SUBSYSTEM=="usb", ACTION=="add", ENV{DEVTYPE}=="usb_device", ENV{PRODUCT}=="4b4/520A/*", RUN+="/sbin/fxload -t fx2 -I /usr/local/share/hantek/dso520a-firmware.hex -s /usr/local/share/hantek/dso520a-loader.hex -D $env{DEVNAME}"
+SYSFS{idVendor}=="04b5", SYSFS{idProduct}=="520A", MODE="0660", GROUP="plugdev"
+
+# Hantek DSO-6022BE
+SUBSYSTEM=="usb", ACTION=="add", ENV{DEVTYPE}=="usb_device", ENV{PRODUCT}=="4b4/6022/*", RUN+="/sbin/fxload -t fx2 -I /opt/git-repos/openhantek/fw/hantek6022be-firmware.hex -s /opt/git-repos/openhantek/fw/hantek6022be-loader.hex -D $env{DEVNAME}"
+SYSFS{idVendor}=="04b5", SYSFS{idProduct}=="6022", MODE="0666", GROUP="plugdev"
+# Hantek DSO-6022BL
+SUBSYSTEM=="usb", ACTION=="add", ENV{DEVTYPE}=="usb_device", ENV{PRODUCT}=="4b4/602A/*", RUN+="/sbin/fxload -t fx2 -I /opt/git-repos/openhantek/fw/hantek6022be-firmware.hex -s /opt/git-repos/openhantek/fw/hantek6022be-loader.hex -D $env{DEVNAME}"
+SYSFS{idVendor}=="04b5", SYSFS{idProduct}=="6022", MODE="0666", GROUP="plugdev"
+SUBSYSTEM=="usb", ATTRS{idVendor}=="04b4", ATTRS{idProduct}=="6022", MODE:="0666", GROUP="plugdev"
+SUBSYSTEM=="usb", ATTRS{idVendor}=="04b5", ATTRS{idProduct}=="6022", MODE:="0666", GROUP="plugdev"
