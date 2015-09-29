@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0" language="pt_BR">
+<TS version="2.1" language="pt_BR">
 <context>
     <name>DsoConfigAnalysisPage</name>
     <message>
@@ -270,67 +270,65 @@
 <context>
     <name>DsoWidget</name>
     <message>
-        <location filename="../src/dsowidget.cpp" line="284"/>
+        <location filename="../src/dsowidget.cpp" line="302"/>
         <source>Zoom x%L1</source>
         <translation>Zoom x%L1</translation>
     </message>
     <message>
-        <location filename="../src/dsowidget.cpp" line="285"/>
-        <location filename="../src/dsowidget.cpp" line="286"/>
-        <location filename="../src/dsowidget.cpp" line="297"/>
-        <location filename="../src/dsowidget.cpp" line="323"/>
-        <location filename="../src/dsowidget.cpp" line="330"/>
-        <location filename="../src/dsowidget.cpp" line="340"/>
+        <location filename="../src/dsowidget.cpp" line="303"/>
+        <location filename="../src/dsowidget.cpp" line="304"/>
+        <location filename="../src/dsowidget.cpp" line="315"/>
+        <location filename="../src/dsowidget.cpp" line="341"/>
+        <location filename="../src/dsowidget.cpp" line="349"/>
+        <location filename="../src/dsowidget.cpp" line="361"/>
         <source>/div</source>
         <translation>/div</translation>
     </message>
     <message>
-        <location filename="../src/dsowidget.cpp" line="437"/>
+        <location filename="../src/dsowidget.cpp" line="458"/>
         <source>Portable Document Format (*.pdf)</source>
         <translation>Portables Documenten Format (*.pdf)</translation>
     </message>
     <message>
-        <location filename="../src/dsowidget.cpp" line="438"/>
         <source>PostScript (*.ps)</source>
-        <translation>PostScript (*.ps)</translation>
+        <translation type="vanished">PostScript (*.ps)</translation>
     </message>
     <message>
-        <location filename="../src/dsowidget.cpp" line="442"/>
+        <location filename="../src/dsowidget.cpp" line="462"/>
         <source>Export file...</source>
         <translation>Exportar arquivo...</translation>
     </message>
     <message>
-        <location filename="../src/dsowidget.cpp" line="477"/>
+        <location filename="../src/dsowidget.cpp" line="497"/>
         <source>Marker 1/2</source>
         <translation>Construtor 1/2</translation>
     </message>
     <message>
-        <location filename="../src/dsowidget.cpp" line="309"/>
+        <location filename="../src/dsowidget.cpp" line="327"/>
         <source>%L1%</source>
         <translation>%L1%</translation>
     </message>
     <message>
-        <location filename="../src/dsowidget.cpp" line="310"/>
+        <location filename="../src/dsowidget.cpp" line="328"/>
         <source>%1  %2  %3  %4</source>
         <translation>%1  %2  %3  %4</translation>
     </message>
     <message>
-        <location filename="../src/dsowidget.cpp" line="335"/>
+        <location filename="../src/dsowidget.cpp" line="355"/>
         <source>/s</source>
         <translation>/s</translation>
     </message>
     <message>
-        <location filename="../src/dsowidget.cpp" line="429"/>
         <source>%1 S</source>
-        <translation>%1 S</translation>
+        <translation type="vanished">%1 S</translation>
     </message>
     <message>
-        <location filename="../src/dsowidget.cpp" line="439"/>
+        <location filename="../src/dsowidget.cpp" line="459"/>
         <source>Image (*.png *.xpm *.jpg)</source>
         <translation>Imagem (*.png *.xpm *.jpg)</translation>
     </message>
     <message>
-        <location filename="../src/dsowidget.cpp" line="440"/>
+        <location filename="../src/dsowidget.cpp" line="460"/>
         <source>Comma-Separated Values (*.csv)</source>
         <translation>Separado por ponto e vírgula (*.csv)</translation>
     </message>
@@ -386,27 +384,27 @@
 <context>
     <name>Hantek::Control</name>
     <message>
-        <location filename="../src/hantek/control.cpp" line="90"/>
+        <location filename="../src/hantek/control.cpp" line="92"/>
         <source>EXT</source>
         <translation>EXT</translation>
     </message>
     <message>
-        <location filename="../src/hantek/control.cpp" line="90"/>
+        <location filename="../src/hantek/control.cpp" line="92"/>
         <source>EXT/10</source>
         <translation>EXT/10</translation>
     </message>
     <message>
-        <location filename="../src/hantek/control.cpp" line="299"/>
+        <location filename="../src/hantek/control.cpp" line="323"/>
         <source>The device has been disconnected</source>
         <translation>O dispositivo esta desconectado</translation>
     </message>
     <message>
-        <location filename="../src/hantek/control.cpp" line="621"/>
+        <location filename="../src/hantek/control.cpp" line="944"/>
         <source>Unknown model</source>
         <translation>Modelo desconhecido</translation>
     </message>
     <message>
-        <location filename="../src/hantek/control.cpp" line="716"/>
+        <location filename="../src/hantek/control.cpp" line="1076"/>
         <source>Couldn&apos;t get channel level data from oscilloscope</source>
         <translation>Não foi possível obter dados do canal do osciloscópio</translation>
     </message>
@@ -414,41 +412,41 @@
 <context>
     <name>Hantek::Device</name>
     <message>
-        <location filename="../src/hantek/device.cpp" line="74"/>
+        <location filename="../src/hantek/device.cpp" line="72"/>
         <source>Can&apos;t search for Hantek oscilloscopes: %1</source>
         <translation>Não é possivel procurar pelo osciloscópio Hantek: %1</translation>
     </message>
     <message>
-        <location filename="../src/hantek/device.cpp" line="125"/>
-        <location filename="../src/hantek/device.cpp" line="206"/>
+        <location filename="../src/hantek/device.cpp" line="123"/>
+        <location filename="../src/hantek/device.cpp" line="207"/>
         <source>Failed to claim interface %1 of device %2: %3</source>
         <translation>Falha ao acessar a interface %1 do dispositivo %2: %3</translation>
     </message>
     <message>
-        <location filename="../src/hantek/device.cpp" line="145"/>
-        <location filename="../src/hantek/device.cpp" line="226"/>
+        <location filename="../src/hantek/device.cpp" line="146"/>
+        <location filename="../src/hantek/device.cpp" line="230"/>
         <source>Device found: Hantek %1 (%2)</source>
         <translation>Dispositivo encontrado Hantek %1 (%2)</translation>
     </message>
     <message>
-        <location filename="../src/hantek/device.cpp" line="152"/>
+        <location filename="../src/hantek/device.cpp" line="153"/>
         <source>Couldn&apos;t open device %1</source>
         <translation>Não foi possivel acessar o dispositivo %1</translation>
     </message>
     <message>
-        <location filename="../src/hantek/device.cpp" line="155"/>
-        <location filename="../src/hantek/device.cpp" line="240"/>
+        <location filename="../src/hantek/device.cpp" line="156"/>
+        <location filename="../src/hantek/device.cpp" line="244"/>
         <source>No Hantek oscilloscope found</source>
         <translation>Nenhum osciloscópio Hantek encontrado</translation>
     </message>
     <message>
-        <location filename="../src/hantek/device.cpp" line="85"/>
-        <location filename="../src/hantek/device.cpp" line="165"/>
+        <location filename="../src/hantek/device.cpp" line="83"/>
+        <location filename="../src/hantek/device.cpp" line="166"/>
         <source>Failed to get device list: %1</source>
         <translation>Falha ao obter a lista de dispositivos: %1</translation>
     </message>
     <message>
-        <location filename="../src/hantek/device.cpp" line="236"/>
+        <location filename="../src/hantek/device.cpp" line="240"/>
         <source>Couldn&apos;t open device %1: %2</source>
         <translation>Não foi possível abrir o dispositivo %1: %2</translation>
     </message>
@@ -456,252 +454,263 @@
 <context>
     <name>HorizontalDock</name>
     <message>
-        <location filename="../src/dockwindows.cpp" line="44"/>
+        <location filename="../src/dockwindows.cpp" line="47"/>
         <source>Horizontal</source>
         <translation>Horizontal</translation>
     </message>
     <message>
-        <location filename="../src/dockwindows.cpp" line="63"/>
+        <location filename="../src/dockwindows.cpp" line="51"/>
+        <source>Samplerate</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/dockwindows.cpp" line="60"/>
         <source>Timebase</source>
         <translation>Tempo base</translation>
     </message>
     <message>
-        <location filename="../src/dockwindows.cpp" line="67"/>
+        <location filename="../src/dockwindows.cpp" line="66"/>
         <source>Frequencybase</source>
         <translation>Frequência base</translation>
     </message>
     <message>
         <location filename="../src/dockwindows.cpp" line="71"/>
+        <source>Record length</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/dockwindows.cpp" line="74"/>
         <source>Format</source>
         <translation>Formato</translation>
+    </message>
+    <message>
+        <location filename="../src/dockwindows.cpp" line="189"/>
+        <location filename="../src/dockwindows.cpp" line="192"/>
+        <source>Roll</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>OpenHantekMainWindow</name>
     <message>
-        <location filename="../src/openhantek.cpp" line="62"/>
+        <location filename="../src/openhantek.cpp" line="64"/>
         <source>OpenHantek</source>
         <translation>OpenHantek</translation>
     </message>
     <message>
-        <location filename="../src/openhantek.cpp" line="168"/>
+        <location filename="../src/openhantek.cpp" line="126"/>
         <source>&amp;Open...</source>
         <translation>&amp;Abrir...</translation>
     </message>
     <message>
-        <location filename="../src/openhantek.cpp" line="169"/>
+        <location filename="../src/openhantek.cpp" line="127"/>
         <source>Ctrl+O</source>
         <translation>Ctrl+O</translation>
     </message>
     <message>
-        <location filename="../src/openhantek.cpp" line="170"/>
+        <location filename="../src/openhantek.cpp" line="128"/>
         <source>Open saved settings</source>
         <translation>Abrir configuração salva</translation>
     </message>
     <message>
-        <location filename="../src/openhantek.cpp" line="173"/>
+        <location filename="../src/openhantek.cpp" line="131"/>
         <source>&amp;Save</source>
         <translation>&amp;Salvar</translation>
     </message>
     <message>
-        <location filename="../src/openhantek.cpp" line="174"/>
-        <location filename="../src/openhantek.cpp" line="198"/>
+        <location filename="../src/openhantek.cpp" line="132"/>
+        <location filename="../src/openhantek.cpp" line="156"/>
         <source>Ctrl+S</source>
         <translation>Ctrl+S</translation>
     </message>
     <message>
-        <location filename="../src/openhantek.cpp" line="175"/>
+        <location filename="../src/openhantek.cpp" line="133"/>
         <source>Save the current settings</source>
         <translation>Salvar configuração atual</translation>
     </message>
     <message>
-        <location filename="../src/openhantek.cpp" line="178"/>
+        <location filename="../src/openhantek.cpp" line="136"/>
         <source>Save &amp;as...</source>
         <translation>Salvar &amp;como...</translation>
     </message>
     <message>
-        <location filename="../src/openhantek.cpp" line="179"/>
+        <location filename="../src/openhantek.cpp" line="137"/>
         <source>Save the current settings to another file</source>
         <translation>Salvar atual configuração em outro arquivo</translation>
     </message>
     <message>
-        <location filename="../src/openhantek.cpp" line="182"/>
+        <location filename="../src/openhantek.cpp" line="140"/>
         <source>&amp;Print...</source>
         <translation>&amp;Imprimir...</translation>
     </message>
     <message>
-        <location filename="../src/openhantek.cpp" line="183"/>
+        <location filename="../src/openhantek.cpp" line="141"/>
         <source>Ctrl+P</source>
         <translation>Ctrl+P</translation>
     </message>
     <message>
-        <location filename="../src/openhantek.cpp" line="184"/>
+        <location filename="../src/openhantek.cpp" line="142"/>
         <source>Print the oscilloscope screen</source>
         <translation>Imprimir a tela do osciloscópio</translation>
     </message>
     <message>
-        <location filename="../src/openhantek.cpp" line="187"/>
+        <location filename="../src/openhantek.cpp" line="145"/>
         <source>&amp;Export as...</source>
         <translation>&amp;Exportar como...</translation>
     </message>
     <message>
-        <location filename="../src/openhantek.cpp" line="188"/>
+        <location filename="../src/openhantek.cpp" line="146"/>
         <source>Ctrl+E</source>
         <translation>Ctrl+E</translation>
     </message>
     <message>
-        <location filename="../src/openhantek.cpp" line="189"/>
+        <location filename="../src/openhantek.cpp" line="147"/>
         <source>Export the oscilloscope data to a file</source>
         <translation>Exportar dados do osciloscópio para um arquivo</translation>
     </message>
     <message>
-        <location filename="../src/openhantek.cpp" line="192"/>
+        <location filename="../src/openhantek.cpp" line="150"/>
         <source>E&amp;xit</source>
         <translation>&amp;Sair</translation>
     </message>
     <message>
-        <location filename="../src/openhantek.cpp" line="193"/>
+        <location filename="../src/openhantek.cpp" line="151"/>
         <source>Ctrl+Q</source>
         <translation>Ctrl+Q</translation>
     </message>
     <message>
-        <location filename="../src/openhantek.cpp" line="194"/>
+        <location filename="../src/openhantek.cpp" line="152"/>
         <source>Exit the application</source>
         <translation>Sair do programa</translation>
     </message>
     <message>
-        <location filename="../src/openhantek.cpp" line="197"/>
+        <location filename="../src/openhantek.cpp" line="155"/>
         <source>&amp;Settings</source>
         <translation>&amp;Configurações</translation>
     </message>
     <message>
-        <location filename="../src/openhantek.cpp" line="199"/>
+        <location filename="../src/openhantek.cpp" line="157"/>
         <source>Configure the oscilloscope</source>
         <translation>Configurar o osciloscópio</translation>
     </message>
     <message>
-        <location filename="../src/openhantek.cpp" line="243"/>
+        <location filename="../src/openhantek.cpp" line="186"/>
         <source>Send command</source>
         <translation>Enviar comando</translation>
     </message>
     <message>
-        <location filename="../src/openhantek.cpp" line="244"/>
+        <location filename="../src/openhantek.cpp" line="187"/>
         <source>Shift+C</source>
         <translation>Shift+C</translation>
     </message>
     <message>
-        <location filename="../src/openhantek.cpp" line="264"/>
+        <location filename="../src/openhantek.cpp" line="207"/>
         <source>&amp;Docking windows</source>
         <translation>&amp;Janelas flutuantes</translation>
     </message>
     <message>
-        <location filename="../src/openhantek.cpp" line="269"/>
+        <location filename="../src/openhantek.cpp" line="212"/>
         <source>&amp;Toolbars</source>
         <translation>&amp;Ferramentas</translation>
     </message>
     <message>
-        <location filename="../src/openhantek.cpp" line="282"/>
         <source>&amp;Record length</source>
-        <translation>&amp;Tamanho do registro</translation>
+        <translation type="vanished">&amp;Tamanho do registro</translation>
     </message>
     <message>
-        <location filename="../src/openhantek.cpp" line="380"/>
-        <location filename="../src/openhantek.cpp" line="400"/>
+        <location filename="../src/openhantek.cpp" line="413"/>
+        <location filename="../src/openhantek.cpp" line="433"/>
         <source>Settings (*.ini)</source>
         <translation>Configurações (*.ini)</translation>
     </message>
     <message>
-        <location filename="../src/openhantek.cpp" line="400"/>
+        <location filename="../src/openhantek.cpp" line="433"/>
         <source>Save settings</source>
         <translation>Salvar configurações</translation>
     </message>
     <message>
-        <location filename="../src/openhantek.cpp" line="414"/>
+        <location filename="../src/openhantek.cpp" line="447"/>
         <source>&amp;Stop</source>
         <translation>&amp;Parar</translation>
     </message>
     <message>
-        <location filename="../src/openhantek.cpp" line="463"/>
+        <location filename="../src/openhantek.cpp" line="535"/>
         <source>&lt;p&gt;This is a open source software for Hantek USB oscilloscopes.&lt;/p&gt;&lt;p&gt;Copyright &amp;copy; 2010, 2011 Oliver Haag &amp;lt;oliver.haag@gmail.com&amp;gt;&lt;/p&gt;</source>
         <translation>&lt;p&gt;Este é um programa Open-Source para osciloscópios USB Hantek.&lt;/p&gt;&lt;p&gt;Copyright &amp;copy; 2010, 2011 Oliver Haag &amp;lt;oliver.haag@gmail.com&amp;gt;&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../src/openhantek.cpp" line="672"/>
+        <location filename="../src/openhantek.cpp" line="761"/>
         <source>Invalid command</source>
         <translation>Comando inválido</translation>
     </message>
     <message>
-        <location filename="../src/openhantek.cpp" line="203"/>
+        <location filename="../src/openhantek.cpp" line="161"/>
         <source>Space</source>
         <translation>Espaço</translation>
     </message>
     <message>
-        <location filename="../src/openhantek.cpp" line="416"/>
+        <location filename="../src/openhantek.cpp" line="449"/>
         <source>Stop the oscilloscope</source>
         <translation>Parar osciloscópio</translation>
     </message>
     <message>
-        <location filename="../src/openhantek.cpp" line="209"/>
         <source>&amp;Small</source>
-        <translation>&amp;Pequeno</translation>
+        <translation type="vanished">&amp;Pequeno</translation>
     </message>
     <message>
-        <location filename="../src/openhantek.cpp" line="213"/>
         <source>10240 Samples</source>
-        <translation>10240 Amostras</translation>
+        <translation type="vanished">10240 Amostras</translation>
     </message>
     <message>
-        <location filename="../src/openhantek.cpp" line="215"/>
         <source>&amp;Large</source>
-        <translation>&amp;Grande</translation>
+        <translation type="vanished">&amp;Grande</translation>
     </message>
     <message>
-        <location filename="../src/openhantek.cpp" line="219"/>
         <source>32768 Samples</source>
-        <translation>32768 Amostras</translation>
+        <translation type="vanished">32768 Amostras</translation>
     </message>
     <message>
-        <location filename="../src/openhantek.cpp" line="221"/>
+        <location filename="../src/openhantek.cpp" line="164"/>
         <source>Digital &amp;phosphor</source>
         <translation>&amp;Intensidade Digital</translation>
     </message>
     <message>
-        <location filename="../src/openhantek.cpp" line="227"/>
+        <location filename="../src/openhantek.cpp" line="170"/>
         <source>&amp;Zoom</source>
         <translation>&amp;Zoom</translation>
     </message>
     <message>
-        <location filename="../src/openhantek.cpp" line="234"/>
+        <location filename="../src/openhantek.cpp" line="177"/>
         <source>&amp;About</source>
         <translation>&amp;Sobre</translation>
     </message>
     <message>
-        <location filename="../src/openhantek.cpp" line="235"/>
+        <location filename="../src/openhantek.cpp" line="178"/>
         <source>Show information about this program</source>
         <translation>Mostrar informações sobre este programa</translation>
     </message>
     <message>
-        <location filename="../src/openhantek.cpp" line="238"/>
+        <location filename="../src/openhantek.cpp" line="181"/>
         <source>About &amp;Qt</source>
         <translation>Sobre o &amp;Qt</translation>
     </message>
     <message>
-        <location filename="../src/openhantek.cpp" line="239"/>
+        <location filename="../src/openhantek.cpp" line="182"/>
         <source>Show the Qt library&apos;s About box</source>
         <translation>Mostrar a mensagem sobre o Qt</translation>
     </message>
     <message>
-        <location filename="../src/openhantek.cpp" line="250"/>
+        <location filename="../src/openhantek.cpp" line="193"/>
         <source>&amp;File</source>
         <translation>&amp;Arquivo</translation>
     </message>
     <message>
-        <location filename="../src/openhantek.cpp" line="260"/>
+        <location filename="../src/openhantek.cpp" line="203"/>
         <source>&amp;View</source>
         <translation>&amp;Ver</translation>
     </message>
     <message>
-        <location filename="../src/openhantek.cpp" line="274"/>
+        <location filename="../src/openhantek.cpp" line="217"/>
         <source>&amp;Oscilloscope</source>
         <translation>&amp;Osciloscópio</translation>
     </message>
@@ -710,67 +719,67 @@
         <translation type="obsolete">&amp;Tamanho do buffer</translation>
     </message>
     <message>
-        <location filename="../src/openhantek.cpp" line="288"/>
+        <location filename="../src/openhantek.cpp" line="228"/>
         <source>&amp;Help</source>
         <translation>&amp;Ajuda</translation>
     </message>
     <message>
-        <location filename="../src/openhantek.cpp" line="295"/>
+        <location filename="../src/openhantek.cpp" line="235"/>
         <source>File</source>
         <translation>Arquivo</translation>
     </message>
     <message>
-        <location filename="../src/openhantek.cpp" line="304"/>
+        <location filename="../src/openhantek.cpp" line="244"/>
         <source>Oscilloscope</source>
         <translation>Oscilosópio</translation>
     </message>
     <message>
-        <location filename="../src/openhantek.cpp" line="307"/>
+        <location filename="../src/openhantek.cpp" line="247"/>
         <source>View</source>
         <translation>Ver</translation>
     </message>
     <message>
-        <location filename="../src/openhantek.cpp" line="322"/>
+        <location filename="../src/openhantek.cpp" line="262"/>
         <source>Ready</source>
         <translation>Pronto</translation>
     </message>
     <message>
-        <location filename="../src/openhantek.cpp" line="380"/>
+        <location filename="../src/openhantek.cpp" line="413"/>
         <source>Open file</source>
         <translation>Abrir arquivo</translation>
     </message>
     <message>
-        <location filename="../src/openhantek.cpp" line="424"/>
+        <location filename="../src/openhantek.cpp" line="457"/>
         <source>&amp;Start</source>
         <translation>&amp;Iniciar</translation>
     </message>
     <message>
-        <location filename="../src/openhantek.cpp" line="426"/>
+        <location filename="../src/openhantek.cpp" line="459"/>
         <source>Start the oscilloscope</source>
         <translation>Iniciar osciloscópio</translation>
     </message>
     <message>
-        <location filename="../src/openhantek.cpp" line="446"/>
+        <location filename="../src/openhantek.cpp" line="518"/>
         <source>Disable fading of previous graphs</source>
         <translation>Desabilitar desaparecimento de gráficos anteriores</translation>
     </message>
     <message>
-        <location filename="../src/openhantek.cpp" line="448"/>
+        <location filename="../src/openhantek.cpp" line="520"/>
         <source>Enable fading of previous graphs</source>
         <translation>Habilitar desaparecimento de gráficos anteriores</translation>
     </message>
     <message>
-        <location filename="../src/openhantek.cpp" line="456"/>
+        <location filename="../src/openhantek.cpp" line="528"/>
         <source>Hide magnified scope</source>
         <translation>Esconder/Ampliar osciloscópio</translation>
     </message>
     <message>
-        <location filename="../src/openhantek.cpp" line="458"/>
+        <location filename="../src/openhantek.cpp" line="530"/>
         <source>Show magnified scope</source>
         <translation>Mostrar osciloscópio ampliado</translation>
     </message>
     <message>
-        <location filename="../src/openhantek.cpp" line="463"/>
+        <location filename="../src/openhantek.cpp" line="535"/>
         <source>About OpenHantek %1</source>
         <translation>*Sobre o OpenHantek %1</translation>
     </message>
@@ -778,187 +787,195 @@
 <context>
     <name>QApplication</name>
     <message>
-        <location filename="../src/helper.cpp" line="47"/>
+        <location filename="../src/helper.cpp" line="49"/>
         <source>Success (no error)</source>
         <translation>Sucesso (sem erro)</translation>
     </message>
     <message>
-        <location filename="../src/helper.cpp" line="49"/>
+        <location filename="../src/helper.cpp" line="51"/>
         <source>Input/output error</source>
         <translation>Erro na entrada/saida</translation>
     </message>
     <message>
-        <location filename="../src/helper.cpp" line="51"/>
+        <location filename="../src/helper.cpp" line="53"/>
         <source>Invalid parameter</source>
         <translation>Parametro inválido</translation>
     </message>
     <message>
-        <location filename="../src/helper.cpp" line="53"/>
+        <location filename="../src/helper.cpp" line="55"/>
         <source>Access denied (insufficient permissions)</source>
         <translation>Acesso negado (permissões insuficientes)</translation>
     </message>
     <message>
-        <location filename="../src/helper.cpp" line="55"/>
+        <location filename="../src/helper.cpp" line="57"/>
         <source>No such device (it may have been disconnected)</source>
         <translation>Não encontrado o dispositivo (pode estar desconectado)</translation>
     </message>
     <message>
-        <location filename="../src/helper.cpp" line="57"/>
+        <location filename="../src/helper.cpp" line="59"/>
         <source>Entity not found</source>
         <translation>Entidade não encontrada</translation>
     </message>
     <message>
-        <location filename="../src/helper.cpp" line="59"/>
+        <location filename="../src/helper.cpp" line="61"/>
         <source>Resource busy</source>
         <translation>Recurso ocupado</translation>
     </message>
     <message>
-        <location filename="../src/helper.cpp" line="61"/>
+        <location filename="../src/helper.cpp" line="63"/>
         <source>Operation timed out</source>
         <translation>Operação expirou</translation>
     </message>
     <message>
-        <location filename="../src/helper.cpp" line="63"/>
+        <location filename="../src/helper.cpp" line="65"/>
         <source>Overflow</source>
         <translation>Transbordamento</translation>
     </message>
     <message>
-        <location filename="../src/helper.cpp" line="65"/>
+        <location filename="../src/helper.cpp" line="67"/>
         <source>Pipe error</source>
         <translation>Erro de redirecionamento</translation>
     </message>
     <message>
-        <location filename="../src/helper.cpp" line="67"/>
+        <location filename="../src/helper.cpp" line="69"/>
         <source>System call interrupted (perhaps due to signal)</source>
         <translation>Chamada de sistema interrompida(talvez, devido ao sinal)</translation>
     </message>
     <message>
-        <location filename="../src/helper.cpp" line="69"/>
+        <location filename="../src/helper.cpp" line="71"/>
         <source>Insufficient memory</source>
         <translation>Memória insuficiente</translation>
     </message>
     <message>
-        <location filename="../src/helper.cpp" line="71"/>
+        <location filename="../src/helper.cpp" line="73"/>
         <source>Operation not supported or unimplemented on this platform</source>
         <translation>Operação não suportada ou não implementada nesta plataforma</translation>
     </message>
     <message>
-        <location filename="../src/helper.cpp" line="73"/>
+        <location filename="../src/helper.cpp" line="75"/>
         <source>Other error</source>
         <translation>Outro erro</translation>
     </message>
     <message>
-        <location filename="../src/helper.cpp" line="90"/>
-        <source>%L1 µV</source>
-        <translation>%L1 µV</translation>
+        <location filename="../src/helper.cpp" line="92"/>
+        <source>%L1 uV</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/helper.cpp" line="92"/>
+        <location filename="../src/helper.cpp" line="109"/>
+        <source>%L1 us</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%L1 µV</source>
+        <translation type="vanished">%L1 µV</translation>
+    </message>
+    <message>
+        <location filename="../src/helper.cpp" line="94"/>
         <source>%L1 mV</source>
         <translation>%L1 mV</translation>
     </message>
     <message>
-        <location filename="../src/helper.cpp" line="94"/>
+        <location filename="../src/helper.cpp" line="96"/>
         <source>%L1 V</source>
         <translation>%L1 V</translation>
     </message>
     <message>
-        <location filename="../src/helper.cpp" line="98"/>
+        <location filename="../src/helper.cpp" line="100"/>
         <source>%L1 dB</source>
         <translation>%L1 dB</translation>
     </message>
     <message>
-        <location filename="../src/helper.cpp" line="103"/>
+        <location filename="../src/helper.cpp" line="105"/>
         <source>%L1 ps</source>
         <translation>%L1 ps</translation>
     </message>
     <message>
-        <location filename="../src/helper.cpp" line="105"/>
+        <location filename="../src/helper.cpp" line="107"/>
         <source>%L1 ns</source>
         <translation>%L1 ns</translation>
     </message>
     <message>
-        <location filename="../src/helper.cpp" line="107"/>
         <source>%L1 µs</source>
-        <translation>%L1 µs</translation>
+        <translation type="vanished">%L1 µs</translation>
     </message>
     <message>
-        <location filename="../src/helper.cpp" line="109"/>
+        <location filename="../src/helper.cpp" line="111"/>
         <source>%L1 ms</source>
         <translation>%L1 ms</translation>
     </message>
     <message>
-        <location filename="../src/helper.cpp" line="111"/>
+        <location filename="../src/helper.cpp" line="113"/>
         <source>%L1 s</source>
         <translation>%L1 s</translation>
     </message>
     <message>
-        <location filename="../src/helper.cpp" line="113"/>
+        <location filename="../src/helper.cpp" line="115"/>
         <source>%L1 min</source>
         <translation>%L1 min</translation>
     </message>
     <message>
-        <location filename="../src/helper.cpp" line="115"/>
+        <location filename="../src/helper.cpp" line="117"/>
         <source>%L1 h</source>
         <translation>%L1 h</translation>
     </message>
     <message>
-        <location filename="../src/helper.cpp" line="121"/>
+        <location filename="../src/helper.cpp" line="123"/>
         <source>%L1 Hz</source>
         <translation>%L1 Hz</translation>
     </message>
     <message>
-        <location filename="../src/helper.cpp" line="123"/>
+        <location filename="../src/helper.cpp" line="125"/>
         <source>%L1 kHz</source>
         <translation>%L1 kHz</translation>
     </message>
     <message>
-        <location filename="../src/helper.cpp" line="125"/>
+        <location filename="../src/helper.cpp" line="127"/>
         <source>%L1 MHz</source>
         <translation>%L1 MHz</translation>
     </message>
     <message>
-        <location filename="../src/helper.cpp" line="127"/>
+        <location filename="../src/helper.cpp" line="129"/>
         <source>%L1 GHz</source>
         <translation>%L1 GHz</translation>
     </message>
     <message>
-        <location filename="../src/helper.cpp" line="133"/>
+        <location filename="../src/helper.cpp" line="135"/>
         <source>%L1 S</source>
         <translation>%L1 S</translation>
     </message>
     <message>
-        <location filename="../src/helper.cpp" line="135"/>
+        <location filename="../src/helper.cpp" line="137"/>
         <source>%L1 kS</source>
         <translation>%L1 kS</translation>
     </message>
     <message>
-        <location filename="../src/helper.cpp" line="137"/>
+        <location filename="../src/helper.cpp" line="139"/>
         <source>%L1 MS</source>
         <translation>%L1 MS</translation>
     </message>
     <message>
-        <location filename="../src/helper.cpp" line="139"/>
+        <location filename="../src/helper.cpp" line="141"/>
         <source>%L1 GS</source>
         <translation>%L1 GS</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="145"/>
+        <location filename="../src/settings.cpp" line="146"/>
         <source>CH%1</source>
         <translation>CH%1</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="135"/>
+        <location filename="../src/settings.cpp" line="136"/>
         <source>SP%1</source>
         <translation>SP%1</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="179"/>
+        <location filename="../src/settings.cpp" line="180"/>
         <source>MATH</source>
         <translation>MATH</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="170"/>
+        <location filename="../src/settings.cpp" line="171"/>
         <source>SPM</source>
         <translation>SPC</translation>
     </message>
@@ -1116,7 +1133,7 @@
 <context>
     <name>SpectrumDock</name>
     <message>
-        <location filename="../src/dockwindows.cpp" line="320"/>
+        <location filename="../src/dockwindows.cpp" line="432"/>
         <source>Spectrum</source>
         <translation>Espectro</translation>
     </message>
@@ -1124,27 +1141,27 @@
 <context>
     <name>TriggerDock</name>
     <message>
-        <location filename="../src/dockwindows.cpp" line="180"/>
+        <location filename="../src/dockwindows.cpp" line="276"/>
         <source>Trigger</source>
         <translation>Gatilho</translation>
     </message>
     <message>
-        <location filename="../src/dockwindows.cpp" line="185"/>
+        <location filename="../src/dockwindows.cpp" line="281"/>
         <source>CH%1</source>
         <translation>CH%1</translation>
     </message>
     <message>
-        <location filename="../src/dockwindows.cpp" line="189"/>
+        <location filename="../src/dockwindows.cpp" line="285"/>
         <source>Mode</source>
         <translation>Modo</translation>
     </message>
     <message>
-        <location filename="../src/dockwindows.cpp" line="194"/>
+        <location filename="../src/dockwindows.cpp" line="290"/>
         <source>Slope</source>
         <translation>Declive</translation>
     </message>
     <message>
-        <location filename="../src/dockwindows.cpp" line="199"/>
+        <location filename="../src/dockwindows.cpp" line="295"/>
         <source>Source</source>
         <translation>Fonte</translation>
     </message>
@@ -1152,7 +1169,7 @@
 <context>
     <name>VoltageDock</name>
     <message>
-        <location filename="../src/dockwindows.cpp" line="445"/>
+        <location filename="../src/dockwindows.cpp" line="557"/>
         <source>Voltage</source>
         <translation>Voltagem</translation>
     </message>
