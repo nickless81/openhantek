@@ -1,0 +1,12 @@
+#ifndef USBHANTEK_GLOBAL_H
+#define USBHANTEK_GLOBAL_H
+
+#include <QtCore/qglobal.h>
+
+#if defined(USBHANTEK_LIBRARY)
+#  define USBHANTEKSHARED_EXPORT Q_DECL_EXPORT
+#else
+#  define USBHANTEKSHARED_EXPORT Q_DECL_IMPORT
+#endif
+
+#endif // USBHANTEK_GLOBAL_H
