@@ -89,7 +89,7 @@ namespace Helper {
 				// Voltage string representation
 				int logarithm = floor(log10(fabs(value)));
 				if(value < 1e-3)
-					return QApplication::tr("%L1 \265V").arg(value / 1e-6, 0, format, (precision <= 0) ? precision : qBound(0, precision - 7 - logarithm, precision));
+                    return QApplication::tr("%L1 uV").arg(value / 1e-6, 0, format, (precision <= 0) ? precision : qBound(0, precision - 7 - logarithm, precision));
 				else if(value < 1.0)
 					return QApplication::tr("%L1 mV").arg(value / 1e-3, 0, format, (precision <= 0) ? precision : (precision - 4 - logarithm));
 				else
@@ -106,7 +106,7 @@ namespace Helper {
 				else if(value < 1e-6)
 					return QApplication::tr("%L1 ns").arg(value / 1e-9, 0, format, (precision <= 0) ? precision : (precision - 10 - (int) floor(log10(fabs(value)))));
 				else if(value < 1e-3)
-					return QApplication::tr("%L1 \265s").arg(value / 1e-6, 0, format, (precision <= 0) ? precision : (precision - 7 - (int) floor(log10(fabs(value)))));
+                    return QApplication::tr("%L1 us").arg(value / 1e-6, 0, format, (precision <= 0) ? precision : (precision - 7 - (int) floor(log10(fabs(value)))));
 				else if(value < 1.0)
 					return QApplication::tr("%L1 ms").arg(value / 1e-3, 0, format, (precision <= 0) ? precision : (precision - 4 - (int) floor(log10(fabs(value)))));
 				else if(value < 60)
