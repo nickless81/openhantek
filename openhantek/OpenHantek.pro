@@ -124,7 +124,9 @@ else: DEFINES += QT_NO_DEBUG_OUTPUT
 
 # Quoted include directories
 INCLUDEPATH_QUOTE = "$${IN_PWD}/src"
-
+win32 {
+    FFTW_LIBRARY = "$${IN_PWD}/thirdparty/fftw"
+}
 # Include directory
 QMAKE_CXXFLAGS += "-iquote $${INCLUDEPATH_QUOTE}"
 
@@ -168,6 +170,7 @@ win32 {
 	target.path = $${PREFIX}
 	translations.path = $${PREFIX}/translations
 	INCLUDEPATH += $${INCLUDEPATH_QUOTE}
+    INCLUDEPATH += $${FFTW_LIBRARY}
 	DEFINES += \
 		QMAKE_TRANSLATIONS_PATH=\\\"translations\\\" \
 		OS_WINDOWS VERSION=\\\"$${VERSION}\\\"
