@@ -1,0 +1,12 @@
+#ifndef USBWRAPPER_GLOBAL_H
+#define USBWRAPPER_GLOBAL_H
+
+#include <QtCore/qglobal.h>
+
+#if defined(USBWRAPPER_LIBRARY)
+#  define USBWRAPPERSHARED_EXPORT Q_DECL_EXPORT
+#else
+#  define USBWRAPPERSHARED_EXPORT Q_DECL_IMPORT
+#endif
+
+#endif // USBWRAPPER_GLOBAL_H
