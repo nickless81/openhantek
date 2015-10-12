@@ -29,6 +29,8 @@ protected:
     virtual int initDevice()                = 0;
     virtual int exitDevice()                = 0;
     QString     *driverName;    //For example libusb-1.0,libusb0.1,WinUSB,etc
+    UsbInfo     *driverInfo;
+    UsbSetting  *driverSetting;
 signals:
     virtual void connected()                = 0; ///< The device has been connected and initialized
     virtual void disconnected()             = 0; ///< The device has been disconnected
@@ -37,3 +39,4 @@ public slots:
 };
 
 #endif // USBWRAPPER_H
+

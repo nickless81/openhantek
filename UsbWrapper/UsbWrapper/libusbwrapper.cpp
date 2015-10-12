@@ -1,13 +1,22 @@
 #include "libusbwrapper.h"
-//Device::Device(QObject *parent) : QObject(parent) {
-//Device::Device(QObject *parent) : QObject(parent)
 LibUsbWrapper::LibUsbWrapper()
 {
+    this->driverInfo            =   new UsbInfo();
 #if LIBUSB_VERSION == 0
-    this->driverName = new QString("Libusb-0.1");
+    this->driverName            =   new QString("Libusb-0.1");
+    this->driverInfo->Name      = "Libusb-0.1";
+    this->driverInfo->Version   =   "0.1";
 #else
-    this->driverName = new QString("Libusb-1.0");
+    this->driverName            =   new QString("Libusb-1.0");
+    this->driverInfo->Name      = "Libusb-1.0";
+    this->driverInfo->Version   =   "1.0";
 #endif
+    this->driverInfo->OS        =   "Linux 32bits/64bits";
+    this->driverSetting         = new UsbSetting();
+    this->driverSetting->Timeout        =   500;
+    this->driverSetting->TimeoutMulti   =   10;
+    this->driverSetting->Attempts       =   3;
+    this->driverSetting->AttemptsMulti  =   1;
 
 }
 LibUsbWrapper::~LibUsbWrapper()
@@ -168,5 +177,82 @@ int LibUsbWrapper::initDevice(){
 }
 int LibUsbWrapper::exitDevice(){
     qDebug() << "UsbWrapper::exitDevice() UsbDriver: " << *this->driverName;
+    return 0;
+}
+// Various methods to handle USB transfers
+#if LIBUSB_VERSION != 0
+int LibUsbWrapper::bulkTransfer(unsigned char endpoint, unsigned char *data, unsigned int length)
+{
+    int attempts            = this->driverSetting->Attempts;
+    unsigned int timeout    = this->driverSetting->Timeout;
+    Q_UNUSED(endpoint);
+    Q_UNUSED(data);
+    Q_UNUSED(length);
+    Q_UNUSED(attempts);
+    Q_UNUSED(timeout);
+    return 0;
+}
+#endif
+int LibUsbWrapper::bulkWrite       (unsigned char *data, unsigned int length)
+{
+    int attempts    = this->driverSetting->Attempts;
+    Q_UNUSED(data);
+    Q_UNUSED(length);
+    Q_UNUSED(attempts);
+    return 0;
+}
+int LibUsbWrapper::bulkRead        (unsigned char *data, unsigned int length)
+{
+    int attempts = this->driverSetting->Attempts;
+    Q_UNUSED(data);
+    Q_UNUSED(length);
+    Q_UNUSED(attempts);
+    return 0;
+}
+int LibUsbWrapper::bulkReadMulti   (unsigned char *data, unsigned int length)
+{
+    int attempts    = this->driverSetting->AttemptsMulti;
+    Q_UNUSED(data);
+    Q_UNUSED(length);
+    Q_UNUSED(attempts);
+    return 0;
+}
+
+int LibUsbWrapper::controlTransfer (unsigned char type, unsigned char request, unsigned char *data, unsigned int length, int value, int index)
+{
+    int attempts    = this->driverSetting->Attempts;
+    Q_UNUSED(type);
+    Q_UNUSED(request);
+    Q_UNUSED(data);
+    Q_UNUSED(length);
+    Q_UNUSED(value);
+    Q_UNUSED(index);
+    Q_UNUSED(attempts);
+    return 0;
+}
+int LibUsbWrapper::controlWrite    (unsigned char request, unsigned char *data, unsigned int length)
+{
+    int value       = 0;
+    int index       = 0;
+    int attempts    = this->driverSetting->Attempts;
+    Q_UNUSED(request);
+    Q_UNUSED(data);
+    Q_UNUSED(length);
+    Q_UNUSED(value);
+    Q_UNUSED(index);
+    Q_UNUSED(attempts);
+    return 0;
+}
+int LibUsbWrapper::controlRead     (unsigned char request, unsigned char *data, unsigned int length)
+{
+    int value = 0;
+    int index = 0;
+    int attempts = this->driverSetting->Attempts;
+    Q_UNUSED(request);
+    Q_UNUSED(data);
+    Q_UNUSED(length);
+    Q_UNUSED(value);
+    Q_UNUSED(index);
+    Q_UNUSED(attempts);
     return 0;
 }

@@ -4,16 +4,16 @@
 #include <QObject>
 #include "usbwrapper.h"
 #if LIBUSB_VERSION == 0
-#include <usb.h>
-#define libusb_device_handle usb_device_handle
-#define libusb_device_descriptor usb_device_descriptor
+    #include <usb.h>
+    #define libusb_device_handle usb_device_handle
+    #define libusb_device_descriptor usb_device_descriptor
 #else
-#include <libusb.h>
+    #include <libusb.h>
 #endif
 #define TIMEOUT              500 ///< Timeout for USB transfers in ms
 #define TIMEOUT_MULTI         10 ///< Timeout for multi packet USB transfers in ms
 #define ATTEMPTS               3 ///< The number of transfer attempts
-#define ATTEMPTS_MULTI         1 ///< The number of multi packet transfer attempts
+//#define ATTEMPTS_MULTI         1 ///< The number of multi packet transfer attempts
 
 class LibUsbWrapper : public UsbWrapper
 {
@@ -51,15 +51,15 @@ private:
     int inPacketLength; ///< Packet length for the IN endpoint
     // Various methods to handle USB transfers
 #if LIBUSB_VERSION != 0
-    int bulkTransfer(unsigned char endpoint, unsigned char *data, unsigned int length, int attempts = ATTEMPTS, unsigned int timeout = TIMEOUT);
+    int bulkTransfer(unsigned char endpoint, unsigned char *data, unsigned int length);//, int attempts = ATTEMPTS, unsigned int timeout = TIMEOUT);
 #endif
-    int bulkWrite       (unsigned char *data, unsigned int length, int attempts = ATTEMPTS);
-    int bulkRead        (unsigned char *data, unsigned int length, int attempts = ATTEMPTS);
-    int bulkReadMulti   (unsigned char *data, unsigned int length, int attempts = ATTEMPTS_MULTI);
+    int bulkWrite       (unsigned char *data, unsigned int length);//, int attempts = ATTEMPTS);
+    int bulkRead        (unsigned char *data, unsigned int length);//, int attempts = ATTEMPTS);
+    int bulkReadMulti   (unsigned char *data, unsigned int length);//, int attempts = ATTEMPTS_MULTI);
 
-    int controlTransfer (unsigned char type, unsigned char request, unsigned char *data, unsigned int length, int value, int index, int attempts = ATTEMPTS);
-    int controlWrite    (unsigned char request, unsigned char *data, unsigned int length, int value = 0, int index = 0, int attempts = ATTEMPTS);
-    int controlRead     (unsigned char request, unsigned char *data, unsigned int length, int value = 0, int index = 0, int attempts = ATTEMPTS);
+    int controlTransfer (unsigned char type, unsigned char request, unsigned char *data, unsigned int length, int value, int index);//, int attempts = ATTEMPTS);
+    int controlWrite    (unsigned char request, unsigned char *data, unsigned int length);//, int value = 0, int index = 0, int attempts = ATTEMPTS);
+    int controlRead     (unsigned char request, unsigned char *data, unsigned int length);//, int value = 0, int index = 0, int attempts = ATTEMPTS);
     /*
     int getConnectionSpeed();
     int getPacketSize();

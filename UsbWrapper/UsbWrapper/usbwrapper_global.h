@@ -11,3 +11,16 @@
 #endif
 //Adds enum types here!
 #endif // USBWRAPPER_GLOBAL_H
+typedef struct
+{
+    QString         Name;
+    QString         OS;
+    QString         Version;
+}UsbInfo;
+typedef struct
+{
+    unsigned int    Timeout;
+    unsigned int    TimeoutMulti;
+    unsigned int    Attempts;
+    unsigned int    AttemptsMulti;
+}UsbSetting;
