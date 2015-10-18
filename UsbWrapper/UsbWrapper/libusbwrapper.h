@@ -10,10 +10,7 @@
 #else
     #include <libusb.h>
 #endif
-#define TIMEOUT              500 ///< Timeout for USB transfers in ms
-#define TIMEOUT_MULTI         10 ///< Timeout for multi packet USB transfers in ms
-#define ATTEMPTS               3 ///< The number of transfer attempts
-//#define ATTEMPTS_MULTI         1 ///< The number of multi packet transfer attempts
+#include "usbwrapper_global.h"
 
 class LibUsbWrapper : public UsbWrapper
 {
@@ -23,17 +20,18 @@ public:
     QString searchDevice        (qint16   *IdVendor,qint16  *IdProduct);
     int     openDevice          (qint16   *IdVendor,qint16  *IdProduct);
     int     closeDevice         ();
-    int     controlWriteDevice  ();
-    int     controlReadDevice   ();
-    int     bulkWriteDevice     ();
-    int     bulkReadDevice      ();
+    int     controlWriteDevice  (unsigned char request, unsigned char *data, unsigned int length, int value, int index);
+    int     controlReadDevice   (unsigned char request, unsigned char *data, unsigned int length, int value, int index);
+    int     bulkWriteDevice     (unsigned char *data, unsigned int length);
+    int     bulkReadDevice      (unsigned char *data, unsigned int length);
+    int     bulkReadDeviceMulti (unsigned char *data, unsigned int length);
     int     interruptWriteDevice();
     int     interruptReadDevice ();
     void    disconnect          ();
     bool    isConnected         ();
+    int     initDevice          ();
+    int     exitDevice          ();
 private:
-    int initDevice();
-    int exitDevice();
     // Libusb specific variables
 #if LIBUSB_VERSION != 0
     libusb_context *context; ///< The usb context used for this device
@@ -51,22 +49,23 @@ private:
     int inPacketLength; ///< Packet length for the IN endpoint
     // Various methods to handle USB transfers
 #if LIBUSB_VERSION != 0
-    int bulkTransfer(unsigned char endpoint, unsigned char *data, unsigned int length);//, int attempts = ATTEMPTS, unsigned int timeout = TIMEOUT);
+    int bulkTransfer(unsigned char endpoint, unsigned char *data, unsigned int length, int attempts, unsigned int timeout);
 #endif
-    int bulkWrite       (unsigned char *data, unsigned int length);//, int attempts = ATTEMPTS);
-    int bulkRead        (unsigned char *data, unsigned int length);//, int attempts = ATTEMPTS);
-    int bulkReadMulti   (unsigned char *data, unsigned int length);//, int attempts = ATTEMPTS_MULTI);
+    int bulkWrite       (unsigned char *data, unsigned int length);
+    int bulkRead        (unsigned char *data, unsigned int length);
+    int bulkReadMulti   (unsigned char *data, unsigned int length);
 
-    int controlTransfer (unsigned char type, unsigned char request, unsigned char *data, unsigned int length, int value, int index);//, int attempts = ATTEMPTS);
-    int controlWrite    (unsigned char request, unsigned char *data, unsigned int length);//, int value = 0, int index = 0, int attempts = ATTEMPTS);
-    int controlRead     (unsigned char request, unsigned char *data, unsigned int length);//, int value = 0, int index = 0, int attempts = ATTEMPTS);
+    int controlTransfer (unsigned char type, unsigned char request, unsigned char *data, unsigned int length, int value, int index);
     /*
     int getConnectionSpeed();
     int getPacketSize();
     */
 signals:
-    void connected();   ///< The device has been connected and initialized
-    void disconnected();///< The device has been disconnected
+    void connected      ();///< The device has been connected and initialized
+    void disconnected   ();///< The device has been disconnected
+    void open           ();
+    void close          ();
+    void usbError       (int errorCode);
 };
 
 #endif // LIBUSBWRAPPER_H

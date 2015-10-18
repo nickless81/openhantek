@@ -196,12 +196,12 @@ namespace Hantek {
                     continue;
 
 #ifdef DEBUG
-                qDebug("Sending control command %02x:%s", this->controlCode[control], Helper::hexDump(this->control[control]->data(), this->control[control]->getSize()).toLocal8Bit().data());
+                qDebug("Sending control command[%u] Request: %2x Value 0x00  Index 0x00 data:%s",control, this->controlCode[control], Helper::hexDump(this->control[control]->data(), this->control[control]->getSize()).toLocal8Bit().data());
 #endif
 
                 errorCode = this->device->controlWrite(this->controlCode[control], this->control[control]->data(), this->control[control]->getSize());
                 if(errorCode < 0) {
-                    qWarning("Sending control command %2x failed: %s", this->controlCode[control], Helper::libUsbErrorString(errorCode).toLocal8Bit().data());
+                    qWarning("Sending control command[%u] Request: %2x Value 0x00  Index 0x00 failed: %s",control, this->controlCode[control], Helper::libUsbErrorString(errorCode).toLocal8Bit().data());
 
                     if(errorCode == LIBUSB_ERROR_NO_DEVICE) {
                         captureState = LIBUSB_ERROR_NO_DEVICE;
