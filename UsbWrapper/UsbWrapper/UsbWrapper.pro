@@ -13,12 +13,14 @@ TEMPLATE = lib
 
 DEFINES += USBWRAPPER_LIBRARY
 
-SOURCES += usbwrapper.cpp \
-    libusbwrapper.cpp
+SOURCES +=  usbwrapper.cpp \
+            libusbwrapper.cpp \
+            libusbkwrapper.cpp
 
-HEADERS += usbwrapper.h\
-        usbwrapper_global.h \
-    libusbwrapper.h
+HEADERS +=  usbwrapper.h\
+            usbwrapper_global.h \
+            libusbwrapper.h \
+            libusbkwrapper.h
 
 unix {
     target.path = /usr/lib
