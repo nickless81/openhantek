@@ -11,7 +11,6 @@
     #include <libusb.h>
 #endif
 #include "usbwrapper_global.h"
-
 class LibUsbWrapper : public UsbWrapper
 {
 public:
@@ -22,15 +21,19 @@ public:
     int     closeDevice         ();
     int     controlWriteDevice  (unsigned char request, unsigned char *data, unsigned int length, int value, int index);
     int     controlReadDevice   (unsigned char request, unsigned char *data, unsigned int length, int value, int index);
-    int     bulkWriteDevice     (unsigned char *data, unsigned int length);
-    int     bulkReadDevice      (unsigned char *data, unsigned int length);
-    int     bulkReadDeviceMulti (unsigned char *data, unsigned int length);
+    int     controlTransfer     (unsigned char type, unsigned char request, unsigned char *data, unsigned int length, int value, int index);
+    int     bulkWriteDevice     (unsigned char *data, unsigned int length,int *transferred);
+    int     bulkReadDevice      (unsigned char *data, unsigned int length,int *transferred);
     int     interruptWriteDevice();
     int     interruptReadDevice ();
     void    disconnect          ();
     bool    isConnected         ();
     int     initDevice          ();
     int     exitDevice          ();
+    int     kernelDriverActive  (int interfaceNumber);
+    int     detachKernelDriver  (int interfaceNumber);
+    int     claimInterface      (int interfaceNumber);
+    int     releaseInterface    (int interfaceNumber);
 private:
     // Libusb specific variables
 #if LIBUSB_VERSION != 0
@@ -45,87 +48,17 @@ private:
 #endif
     int interface;      ///< The number of the claimed interface
     int error;          ///< The libusb error, that happened on initialization
-    int outPacketLength;///< Packet length for the OUT endpoint
-    int inPacketLength; ///< Packet length for the IN endpoint
     // Various methods to handle USB transfers
 #if LIBUSB_VERSION != 0
-    int bulkTransfer(unsigned char endpoint, unsigned char *data, unsigned int length, int attempts, unsigned int timeout);
+    int bulkTransfer    (unsigned char endpoint, unsigned char *data, unsigned int length,int *transferred, int attempts, unsigned int timeout);
 #endif
-    int bulkWrite       (unsigned char *data, unsigned int length);
-    int bulkRead        (unsigned char *data, unsigned int length);
-    int bulkReadMulti   (unsigned char *data, unsigned int length);
+    int bulkWrite       (unsigned char *data, unsigned int length,int *transferred);
+    int bulkRead        (unsigned char *data, unsigned int length,int *transferred);
 
-    int controlTransfer (unsigned char type, unsigned char request, unsigned char *data, unsigned int length, int value, int index);
     /*
     int getConnectionSpeed();
     int getPacketSize();
     */
-signals:
-    void connected      ();///< The device has been connected and initialized
-    void disconnected   ();///< The device has been disconnected
-    void open           ();
-    void close          ();
-    void usbError       (int errorCode);
 };
 
 #endif // LIBUSBWRAPPER_H
-
-/*
-        public:
-            Device(QObject *parent = 0);
-            ~Device();
-
-            QString search();
-            void disconnect();
-            bool isConnected();
-
-            // Various methods to handle USB transfers
-#if LIBUSB_VERSION != 0
-            int bulkTransfer(unsigned char endpoint, unsigned char *data, unsigned int length, int attempts = HANTEK_ATTEMPTS, unsigned int timeout = HANTEK_TIMEOUT);
-#endif
-            int bulkWrite(unsigned char *data, unsigned int length, int attempts = HANTEK_ATTEMPTS);
-            int bulkRead(unsigned char *data, unsigned int length, int attempts = HANTEK_ATTEMPTS);
-
-            int bulkCommand(Helper::DataArray<unsigned char> *command, int attempts = HANTEK_ATTEMPTS);
-            int bulkReadMulti(unsigned char *data, unsigned int length, int attempts = HANTEK_ATTEMPTS_MULTI);
-
-            int controlTransfer(unsigned char type, unsigned char request, unsigned char *data, unsigned int length, int value, int index, int attempts = HANTEK_ATTEMPTS);
-            int controlWrite(unsigned char request, unsigned char *data, unsigned int length, int value = 0, int index = 0, int attempts = HANTEK_ATTEMPTS);
-            int controlRead(unsigned char request, unsigned char *data, unsigned int length, int value = 0, int index = 0, int attempts = HANTEK_ATTEMPTS);
-
-            int getConnectionSpeed();
-            int getPacketSize();
-            Model getModel();
-
-        protected:
-            // Lists for enums
-            QList<unsigned short int> modelIds; ///< Product ID for each ::Model
-            QStringList modelStrings; ///< The name as QString for each ::Model
-
-            // Command buffers
-            ControlBeginCommand *beginCommandControl; ///< Buffer for the CONTROL_BEGINCOMMAND control command
-
-            // Libusb specific variables
-#if LIBUSB_VERSION != 0
-            libusb_context *context; ///< The usb context used for this device
-#endif
-            Model model; ///< The model of the connected oscilloscope
-#if LIBUSB_VERSION == 0
-            usb_dev_handle *handle; ///< The USB handle for the oscilloscope
-            usb_device_descriptor descriptor; ///< The device descriptor of the oscilloscope
-#else
-            libusb_device_handle *handle; ///< The USB handle for the oscilloscope
-            libusb_device_descriptor descriptor; ///< The device descriptor of the oscilloscope
-#endif
-            int interface; ///< The number of the claimed interface
-            int error; ///< The libusb error, that happened on initialization
-            int outPacketLength; ///< Packet length for the OUT endpoint
-            int inPacketLength; ///< Packet length for the IN endpoint
-
-        signals:
-            void connected(); ///< The device has been connected and initialized
-            void disconnected(); ///< The device has been disconnected
-
-        public slots:
-
- * */

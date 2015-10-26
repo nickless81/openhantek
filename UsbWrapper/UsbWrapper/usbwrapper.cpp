@@ -11,7 +11,7 @@ UsbWrapper::~UsbWrapper(){
 QString *UsbWrapper::getUsbDriverName()
 {
 
-    return this->driverName;
+    return &this->driverInfo->Name;
 }
 unsigned char   UsbWrapper::getEndpointIn()
 {
@@ -22,13 +22,36 @@ unsigned char   UsbWrapper::getEndpointOut()
 {
     return this->driverSetting->EnpointOUT;
 }
-
-void            UsbWrapper::setEndpointIn(unsigned char endpoint)
+unsigned int    UsbWrapper::getTimeout()
 {
-    this->driverSetting->EnpointIN = endpoint;
+    return this->driverSetting->Timeout;
 }
 
-void            UsbWrapper::setEndpointOut(unsigned char endpoint)
+int             UsbWrapper::setEndpointIn(unsigned char endpoint)
 {
-    this->driverSetting->EnpointOUT = endpoint;
+    if(this->driverSetting != NULL)
+    {
+        this->driverSetting->EnpointIN = endpoint;
+        return 0;
+    }
+    return -1;
+}
+
+int             UsbWrapper::setEndpointOut(unsigned char endpoint)
+{
+    if(this->driverSetting != NULL)
+    {
+        this->driverSetting->EnpointOUT = endpoint;
+        return 0;
+    }
+    return -1;
+}
+int             UsbWrapper::setTimeout(unsigned int Timeout)
+{
+    if(this->driverSetting != NULL)
+    {
+        this->driverSetting->Timeout = Timeout;
+        return 0;
+    }
+    return -1;
 }
